@@ -7,5 +7,6 @@
 		return
 	}
 
-	n := service.NewNotifyService()
+	n := &NotifyService{}
 	k := kt.NewKafkaTimer(conf.Conf.Kafkatimer, n)
+	defer k.Close()
